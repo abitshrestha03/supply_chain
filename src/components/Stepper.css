@@ -1,0 +1,188 @@
+/* General styles remain unchanged */
+.stepper-container {
+  font-family: Arial, sans-serif;
+  display: flex;
+  min-height: 100vh;
+  background-color: #f8f9fa;
+}
+
+.progress-bar {
+  flex: 1;
+  background-color: #003dff;
+  color: white;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.stepper-right-panel {
+  flex: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.step {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.step-title {
+  color: white;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.step-circle {
+  background: #ccc;
+  color: #fff;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  margin: 0 auto;
+  font-weight: bold;
+}
+
+.step-circle.active {
+  background: #007bff;
+}
+
+.content-box {
+  padding: 20px;
+  border-radius: 5px;
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.content-box h2 {
+  margin: 0 0 10px;
+  text-align: center;
+}
+
+.step-content {
+  flex-grow: 1;
+}
+
+.button-group {
+  display: flex;
+  justify-content: space-between;
+}
+
+.stepper-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.stepper-btn-prev {
+  background: #6c757d;
+  color: #fff;
+}
+
+.stepper-btn-next {
+  background: #007bff;
+  color: #fff;
+}
+
+.stepper-btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+@media screen and (min-width: 769px) {
+  .logo-img {
+    display: none;
+  }
+}
+
+/* Responsive styles for mobile */
+@media screen and (max-width: 768px) {
+  .logo-img {
+    display: flex;
+    justify-content: center;
+  }
+  .stepper-container {
+    flex-direction: column;
+  }
+
+  .progress-bar {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px;
+    overflow-x: auto;
+    background-color: #0056b3;
+  }
+
+  .step {
+    margin: 0 10px;
+  }
+
+  .step-circle {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 12px;
+  }
+
+  .step-title {
+    font-size: 12px;
+  }
+
+  .stepper-right-panel {
+    padding: 20px;
+  }
+
+  .content-box {
+    max-width: 100%;
+    padding: 15px;
+  }
+
+  .stepper-btn {
+    font-size: 12px;
+    padding: 8px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .logo-img {
+    display: flex;
+    justify-content: center;
+  }
+
+  .progress-bar {
+    display: none;
+  }
+
+  .step {
+    margin: 5px;
+  }
+
+  .step-circle {
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+    font-size: 10px;
+  }
+
+  .step-title {
+    font-size: 10px;
+  }
+
+  .stepper-btn {
+    font-size: 10px;
+
+    padding: 10px;
+  }
+
+  .content-box h2 {
+    font-size: 16px;
+  }
+}
