@@ -6,11 +6,11 @@ import ShippingIcon from "../../assets/icons/ShippingIcon";
 import PackageIcon from "../../assets/icons/PackageIcon";
 import PaymentIcon from "../../assets/icons/PaymentIcon";
 import CheckCircle from "../../assets/icons/CheckCiricle";
-import LineChart from "../../components/Charts/LineChart";
 import BarChartGraph from "../../components/Charts/BarChart";
 import Table from "../../components/Table/Table";
 import DownArrowIcon from "../../assets/icons/DownArrowIcon";
 import AddShipmentModal from "../Shipment/NewShipmentModal";
+import StockAvailabilityCard from "../../components/Cards/StockAvailabilityCard";
 
 const Dashboard = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -84,7 +84,7 @@ const Dashboard = () => {
   ];
 
   return (
-    <div className="bg-body-color ms:w-[100vw] md:w-full h-screen flex flex-col p-4 lg:p-6 md:mt-20">
+    <div className="bg-body-color ms:w-[100vw] md:w-full min-h-screen flex flex-col p-4 lg:p-6 md:mt-20">
       <div className="flex flex-wrap md:justify-between ms:justify-end items-center">
         <DashboardTabs />
         <div className="flex gap-2 mt-4 lg:mt-0">
@@ -97,10 +97,10 @@ const Dashboard = () => {
           />
           <div className="flex md:justify-start">
             <button
-              className="bg-[#003DFF] text-white rounded-md shadow-lg px-4 py-2 ms:text-[12px]"
+              className="bg-[#003DFF] text-white rounded-md shadow-lg px-4 py-2 ms:text-[12px] md:text-sm"
               onClick={() => setIsModalOpen(true)}
             >
-              + New Shipment
+              + New Shipments
             </button>
           </div>
         </div>
@@ -141,8 +141,8 @@ const Dashboard = () => {
         <div className="w-full">
           <BarChartGraph />
         </div>
-        <div className="w-full h-auto overflow-hidden">
-          <LineChart />
+        <div className="w-full h-auto rounded-lg shadow-lg overflow-hidden">
+          <StockAvailabilityCard/>
         </div>
       </div>
 

@@ -55,13 +55,13 @@ const Table = ({ columns, data, title }) => {
           <div className="buttons flex gap-2">
             <button className="bg-gray rounded-md shadow-lg ms:px-2 md:px-4 md:py-2 flex items-center">
               <FilterIcon />
-              <span className="ms:text-xs md:text-lg ml-1 font-normal">
+              <span className="ms:text-xs md:text-sm ml-1 font-normal">
                 Filter
               </span>
             </button>
             <button className="bg-gray rounded-md shadow-lg ms:px-2 ms:py-2 md:px-4 md:py-2 flex items-center">
               <ExportIcon />
-              <span className="ms:text-xs md:text-lg ml-1 font-normal">
+              <span className="ms:text-xs md:text-sm ml-1 font-normal">
                 Export
               </span>
             </button>
@@ -76,7 +76,7 @@ const Table = ({ columns, data, title }) => {
       <div className="overflow-x-auto">
         <table className="min-w-full bg-white border border-gray-200 ms:text-xs lg:text-lg">
           <thead>
-            <tr className="bg-gray-200 text-gray-600 leading-normal">
+            <tr className="bg-[#E6E6E6] text-[#616161] text-sm font-light leading-normal">
               <th className="py-3 px-6 text-left">
                 <input
                   type="checkbox"
@@ -91,7 +91,7 @@ const Table = ({ columns, data, title }) => {
               ))}
             </tr>
           </thead>
-          <tbody className="text-gray-600 font-semibold">
+          <tbody className="text-gray-600 text-sm">
             {tableData.map((item, index) => (
               <tr
                 key={index}

@@ -165,7 +165,9 @@ const BarChart = () => {
             datasets: [
               {
                 label: "Sales ($)",
-                data: [1000, 700, 500, 800, 900, 690, 900, 300, 750, 600, 880, 950],
+                data: [
+                  1000, 700, 500, 800, 900, 690, 900, 300, 750, 600, 880, 950,
+                ],
                 backgroundColor: "#eaeaea",
                 borderRadius: 5,
                 hoverBackgroundColor: "#003DFF",
@@ -183,12 +185,14 @@ const BarChart = () => {
             scales: {
               x: {
                 grid: { display: false },
-                ticks: { font: { size: 12 } },
+                ticks: {
+                  font: { size: 9, color: "#969696", fontStyle: "normal" , family: 'Montserrat', }, // Add fontStyle: 'normal'
+                },
               },
               y: {
                 grid: { display: false },
                 ticks: {
-                  font: { size: 12 },
+                  font: { size: 9, color: "#969696", fontStyle: "normal",  family: 'Montserrat', }, // Add fontStyle: 'normal'
                   stepSize: 200,
                   callback: (value) => "$" + value,
                 },
@@ -250,7 +254,9 @@ const BarChart = () => {
   return (
     <div className="bg-white shadow-lg rounded-lg overflow-hidden">
       <div className="flex bg-[#f0f0f0] px-4 py-4 justify-between items-center">
-        <h2 className="text-black ms:text-sm md:text-lg font-medium">Total Sales</h2>
+        <h2 className="text-black ms:text-sm md:text-lg font-medium">
+          Total Sales
+        </h2>
         <div className="flex gap-2">
           <Button
             textColor="grey"
@@ -260,14 +266,19 @@ const BarChart = () => {
             weight="600"
             icon={<DownArrowIcon />}
           />
-          <button style={{ backgroundColor:"#f7f7f7" }} className="shadow-lg ms:px-2 md:px-2 rounded-md">
+          <button
+            style={{ backgroundColor: "#f7f7f7" }}
+            className="shadow-lg ms:px-2 md:px-2 rounded-md"
+          >
             <ThreeDots />
           </button>
         </div>
       </div>
       <div className="px-4 py-6">
-        <p className="ms:text-lg md:text-4xl font-semibold mb-2">$8290.00</p>
-        <div className="flex ms:w-[40vw] md:w-[11.3vw] items-center justify-between mb-4">
+        <p className="ms:text-lg md:text-4xl font-semibold mb-2 text-black">
+          $8290.00
+        </p>
+        <div className="flex ms:w-[40vw] md:w-[11.3vw] items-center justify-between">
           <p className="text-gray-500 ms:text-[8px] md:text-xs">vs Last year</p>
           <p
             className={`ms:text-[8px] md:text-[10px] ${"bg-[#dff3d2] rounded-xl px-2 text-[#87d259] font-medium flex items-center gap-2"}`}
@@ -276,7 +287,7 @@ const BarChart = () => {
             {<UpwardArrowIcon />}
           </p>
         </div>
-        <div className="h-[190px]">
+        <div className="h-[200px]">
           {/* <Bar data={data} options={options} /> */}
           <Bar data={chartConfig.data} options={chartConfig.options} />
         </div>

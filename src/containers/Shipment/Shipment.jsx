@@ -1,4 +1,25 @@
 import { Line } from "react-chartjs-2";
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  LineElement,
+  PointElement,
+  Title,
+  Tooltip,
+  Legend,
+} from "chart.js";
+
+// Register the required components
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  LineElement,
+  PointElement,
+  Title,
+  Tooltip,
+  Legend
+);
 import Button from "../../components/Buttons/Button";
 import DashboardTabs from "../../components/Tabs/DashboardTab";
 import DownArrowIcon from "../../assets/icons/DownArrowIcon";
@@ -148,10 +169,54 @@ const Shipment = () => {
       },
       scales: {
         x: {
-          ticks: { font: { size: 12 } },
+          ticks: {
+            font: {
+              size: 10,
+              color: "#969696",
+              fontStyle: "normal",
+              family: "Montserrat",
+            },
+            callback: function (value) {
+              const sequence = [1, 3, 5, 7, 10, 13, 15, 17, 20, 23, 25, 27, 30]; // Define the custom sequence
+              return sequence.includes(value) ? value : ''; // Display only the values from the sequence
+            },
+          },
+          grid: {
+            display: false, // Hide grid lines on x-axis
+          },
         },
         y: {
-          ticks: { stepSize: 10 },
+          display: true,
+          grid: {
+            display: true,
+          },
+          border: {
+            display: false,
+          },
+          ticks: {
+            display: true,
+            beginAtZero: true,
+            stepSize: 20,
+            font: {
+              size: 10,
+              color: "#969696",
+              fontStyle: "normal",
+              family: "Montserrat",
+            }, // Add fontStyle: 'normal'
+
+            min: 0,
+            max: 100,
+            callback: function (value) {
+              return value + "%";
+            },
+          },
+          drawBorder: false,
+        },
+      },
+      elements: {
+        point: {
+          radius: 0, // Remove dots on the line
+          hoverRadius: 0, // No hover effect for dots
         },
       },
     },
@@ -216,8 +281,7 @@ const Shipment = () => {
           },
         },
       },
-      layout: {
-      },
+      layout: {},
       scales: {
         y: {
           display: true,
@@ -379,13 +443,13 @@ const Shipment = () => {
   //   },
   // };
 
-  const topCountries = [
-    { country: "Bharain", sales: "12.50k", trend: "up" },
-    { country: "USA", sales: "9.25k", trend: "up" },
-    { country: "India", sales: "8.92k", trend: "down" },
-    { country: "Canada", sales: "8.92k", trend: "down" },
-    { country: "France", sales: "7.20k", trend: "up" },
-    { country: "Brazil", sales: "6.12k", trend: "down" },
+  const topProducts = [
+    { product: "SkinCare Products", sales: "1200.00", trend: "up" },
+    { product: "Coca Cola", sales: "24.32k", trend: "up" },
+    { product: "Band-Aid", sales: "12.09k", trend: "down" },
+    { product: "Wai Wai Noodles", sales: "12.09k", trend: "down" },
+    { product: "Packaged Beans", sales: "12.09k", trend: "up" },
+    { product: "Drinks", sales: "12.09k", trend: "down" },
   ];
 
   // Update chart configuration based on screen size
@@ -419,10 +483,10 @@ const Shipment = () => {
             icon={<DownArrowIcon />}
           />
           <button
-            className="bg-[#003DFF] text-white rounded-md shadow-lg px-4 py-2 ms:text-[12px] ms:mt-8 md:mt-0"
+            className="bg-[#003DFF] text-white rounded-md shadow-lg px-4 py-2 ms:text-[12px]  ms:mt-8 md:mt-0"
             onClick={() => setIsModalOpen(true)}
           >
-            + New Shipment
+            + New Shipments
           </button>{" "}
         </div>
       </div>
@@ -485,47 +549,48 @@ const Shipment = () => {
               <p className="text-gray-500 text-xs mt-4">Since Last Week</p>
             </div>
             <ul>
-              {topCountries.map((country, index) => (
-                <li
+              {topProducts.map((product, index) => (
+                <table
                   key={index}
                   className="flex justify-between items-center py-2 my-4 last:border-none"
                 >
-                  <span className="flex items-center ms:text-xs md:text-lg">
+                  <span className="flex items-center ms:text-xs md:text-sm">
                     <img
-                      src={`https://flagcdn.com/w20/${country.country
+                      src={`https://flagcdn.com/w20/${product.product
                         .toLowerCase()
                         .slice(0, 2)}.png`}
-                      alt={country.country}
+                      alt={product.product}
                       className="mr-2 rounded-full w-6 h-6"
                     />
-                    {country.country}
+                    {product.product}
+                    
                   </span>
                   <span
                     className={`ml-2 ${
-                      country.trend === "up" ? (
+                      product.trend === "up" ? (
                         <UpwardCountryIcon />
                       ) : (
                         <DownwardCountryIcon />
                       )
                     }`}
                   >
-                    {country.trend === "up" ? (
+                    {product.trend === "up" ? (
                       <UpwardCountryIcon />
                     ) : (
                       <DownwardCountryIcon />
                     )}
                   </span>
                   <span className="flex items-center ms:text-xs md:text-sm">
-                    {country.sales}
+                    {product.sales}
                     <span
                       className={`ml-2 ${
-                        country.trend === "up"
+                        product.trend === "up"
                           ? "text-green-500"
                           : "text-red-500"
                       }`}
                     ></span>
                   </span>
-                </li>
+                </table>
               ))}
             </ul>
           </div>

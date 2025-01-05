@@ -4,7 +4,7 @@ import UpwardArrowIcon from "../../assets/icons/UpwardArrowIcon";
 // eslint-disable-next-line react/prop-types
 const DashboardCard = ({ title, value, subtitle, trend, icon: Icon }) => {
   return (
-    <div className="bg-white shadow-lg rounded-lg ms:px-2 md:px-6 pt-5 md:pb-6 w-full flex items-center justify-between">
+    <div className="bg-white shadow-lg rounded-lg ms:px-2 md:px-6 pt-5 md:pb-2 w-full flex items-center justify-between">
       <div className="w-full">
         <div className="flex justify-between items-center">
           <h2 className="ms:text-[9px] md:text-lg font-medium">{title}</h2>
@@ -26,7 +26,6 @@ const DashboardCard = ({ title, value, subtitle, trend, icon: Icon }) => {
             >
             {trend > 0 ? `+${trend}%` : `${trend}%`}
             {trend > 0 ? <UpwardArrowIcon/>:  <DownwardFallingIcon/>  }
-          
           </p>
         </div>
       </div>

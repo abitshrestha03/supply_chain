@@ -19,6 +19,7 @@ export default {
         'txt-blue':'#26A5FF',
         'txt-yellow':'#F9B436',
         'txt-green':'#5EC320',
+        'txt-gray':"#969696",
       },
     },
   },
