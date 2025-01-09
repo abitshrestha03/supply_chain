@@ -1,4 +1,4 @@
-import orderProfileImage from "../../assets/images/orderProfileimage.png";
+import orderProfileImage from "../../assets/images/orderProfileImage.png";
 import OrderHistoryIcon from "../../assets/icons/OrderHistoryIcon";
 import { CiMail } from "react-icons/ci";
 import { HiArrowRight } from "react-icons/hi2";
