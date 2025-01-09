@@ -7,7 +7,7 @@ const Order = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
-    <div className="bg-body-color ms:w-[100vw] md:w-full  h-screen flex flex-col md:ps-2 md:pe-6 md:py-4 md:mt-12 ms:px-4">
+    <div className="bg-body-color ms:w-[100vw] md:w-full min-h-screen flex flex-col p-4 lg:p-6 md:mt-20">
       <div className="flex flex-wrap justify-between items-center">
         <div></div>
         <div className="flex items-center gap-2 mt-4 sm:mt-0">

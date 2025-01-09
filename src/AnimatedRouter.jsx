@@ -14,6 +14,14 @@ import ForgetStepper from "./components/Auth/ForgetPassword/Stepper";
 import ResetSuccess from "./components/Auth/ForgetPassword/ResetSuccess";
 import { AnimatePresence } from "framer-motion";
 import Successful from "./components/Auth/SignUp/Succesfull";
+import EditInventory from "./containers/Inventory/EditInventory";
+import RestockProduct from "./containers/Inventory/RestockProduct";
+import OrderDetails from "./containers/Orders/OrderDetails";
+import Refunds from "./containers/Refunds/Refunds";
+import SalesPersonnel from "./containers/SalesPersonnel/salesPersonnel";
+import Subscription from "./containers/Subscription/Subscription";
+import Notifications from "./containers/Notifications/Notifications";
+import RefundRequest from "./containers/Refunds/RefundRequest";
 
 const AnimatedRouter = () => {
     const location = useLocation();
@@ -45,10 +53,18 @@ const AnimatedRouter = () => {
                                         <Route path="/inventory" element={<Inventory />} />
                                         <Route path="/shipment" element={<Shipment />} />
                                         <Route path="/orders" element={<Order />} />
+                                        <Route path="/orders/details" element={<OrderDetails />} />
                                         <Route path="/customers" element={<Customer />} />
                                         <Route path="/shipment/tracking" element={<ShipmentTracker />} />
                                         <Route path="/support" element={<NoPageAvailable />} />
                                         <Route path="/settings" element={<NoPageAvailable />} />
+                                        <Route path='inventory/restock' element={<RestockProduct/>}/>
+                                        <Route path='inventory/edit-inventory' element={<EditInventory/>}/>
+                                        <Route path='return-refunds' element={<Refunds/>}/>
+                                        <Route path='return-refunds/refund-request' element={<RefundRequest/>}/>
+                                        <Route path='sales-personnel' element={<SalesPersonnel/>}/>
+                                        <Route path='notifications' element={<Notifications/>}/>
+                                        <Route path='subscription' element={<Subscription/>}/>
                                     </Routes>
                                 </div>
                             </div>

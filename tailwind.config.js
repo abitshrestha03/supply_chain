@@ -12,7 +12,7 @@ export default {
       colors: {
         'custom-hover': '#ccd8ff',
         'body-color':'#f9f9f9',
-        'blue':'#003DFF',
+        'custom-blue':'#003DFF',
         'table-green':'#5EC32033',
         'table-yellow':'#F9B43633',
         'table-blue':'#26A5FF33',

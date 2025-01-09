@@ -154,7 +154,7 @@ const Header = () => {
                 </button>
                 <button
                   type="submit"
-                  className="px-2 py-1 text-white bg-blue rounded hover:bg-blue-600"
+                  className="px-2 py-1 text-white bg-custom-blue rounded hover:bg-blue-600"
                 >
                   Save Changes
                 </button>

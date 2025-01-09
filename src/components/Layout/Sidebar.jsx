@@ -8,6 +8,10 @@ import CustomersIcon from "../../assets/icons/CustomersIcon";
 import SupportIcon from "../../assets/icons/SupportIcon";
 import SettingsIcon from "../../assets/icons/SettingsIcon";
 import { useEffect, useRef, useState } from "react";
+import RefundIcon from "../../assets/icons/RefundIcon";
+import SalesPersonnelIcon from "../../assets/icons/SalesPersonnelIcon";
+import NotificationIcon from "../../assets/icons/NotificationIcon";
+import SubscriptionIcon from "../../assets/icons/SubscriptionIcon";
 
 const Sidebar = () => {
   // State to toggle sidebar visibility
@@ -54,7 +58,7 @@ const Sidebar = () => {
       {/* dashboard for larger screens */}
       <div className="hidden md:block bg-white-900 text-black h-screen p-6 space-y-5  md:w-[276px] fixed left-0 top-0 z-10">
         <div className="frame112">
-          <img src={NavLogo} alt="Logo" className="w-[15vw] h-auto mb-20" />
+          <img src={NavLogo} alt="Logo" className="w-[15vw] h-auto mb-12" />
           <nav className="space-y-2 w-[212px]">
             <NavLink
               to="/dashboard"
@@ -123,6 +127,22 @@ const Sidebar = () => {
               </span>
             </NavLink>
             <NavLink
+              to="/return-refunds"
+              className={({ isActive }) =>
+                isActive
+                  ? "flex items-center block text-white bg-[#003DFF] py-3 px-2 w-[10vw] sm:w-[15.56vw] rounded-md"
+                  : "flex items-center block text-black px-2 py-3 w-[10vw] sm:w-[15.56vw] hover:bg-custom-hover rounded-md"
+              }
+            >
+              <RefundIcon
+                className="w-6 h-6"
+                style={{ fill: "currentColor" }}
+              />
+              <span className="ml-5 font-normal text-sm hidden md:block">
+                Return & Refunds
+              </span>
+            </NavLink>
+            <NavLink
               to="/customers"
               className={({ isActive }) =>
                 isActive
@@ -138,11 +158,59 @@ const Sidebar = () => {
                 Customers
               </span>
             </NavLink>
+            <NavLink
+              to="/sales-personnel"
+              className={({ isActive }) =>
+                isActive
+                  ? "flex items-center block text-white bg-[#003DFF] py-3 px-2 w-[10vw] sm:w-[15.56vw] rounded-md"
+                  : "flex items-center block text-black px-2 py-3 w-[10vw] sm:w-[15.56vw] hover:bg-custom-hover rounded-md"
+              }
+            >
+              <SalesPersonnelIcon
+                className="w-6 h-6"
+                style={{ fill: "currentColor" }}
+              />
+              <span className="ml-5 font-normal text-sm hidden md:block">
+                Sales Personnel
+              </span>
+            </NavLink>
+            <NavLink
+              to="/notifications"
+              className={({ isActive }) =>
+                isActive
+                  ? "flex items-center block text-white bg-[#003DFF] py-3 px-2 w-[10vw] sm:w-[15.56vw] rounded-md"
+                  : "flex items-center block text-black px-2 py-3 w-[10vw] sm:w-[15.56vw] hover:bg-custom-hover rounded-md"
+              }
+            >
+              <NotificationIcon
+                className="w-6 h-6"
+                style={{ fill: "currentColor" }}
+              />
+              <span className="ml-5 font-normal text-sm hidden md:block">
+                Notifications
+              </span>
+            </NavLink>
             <div className="flex flex-col">
-              <div className="mt-12">
+              <div className="mt-0">
                 <hr className="border-t border-gray-300" />
               </div>
             </div>
+            <NavLink
+              to="/subscription"
+              className={({ isActive }) =>
+                isActive
+                  ? "flex items-center block text-white bg-[#003DFF] py-3 px-2 w-[10vw] sm:w-[15.56vw] rounded-md"
+                  : "flex items-center block text-black px-2 py-3 w-[10vw] sm:w-[15.56vw] hover:bg-custom-hover rounded-md"
+              }
+            >
+              <SubscriptionIcon
+                className="w-6 h-6"
+                style={{ fill: "currentColor" }}
+              />
+              <span className="ml-5 font-normal text-sm hidden md:block">
+                Subscription
+              </span>
+            </NavLink>
             <NavLink
               to="/support"
               className={({ isActive }) =>

@@ -249,7 +249,7 @@ const Customer = () => {
             </div>
             <div className="flex justify-center  items-center">
               <button
-                className="mt-4 text-blue py-2 px-4 rounded underline"
+                className="mt-4 text-custom-blue py-2 px-4 rounded underline"
                 onClick={openOrderHistory}
               >
                 View Customer Order History

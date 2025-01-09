@@ -50,22 +50,39 @@ const Table = ({ columns, data, title }) => {
     <div className="relative mt-4">
       {/* Sticky Header for Filter and Export */}
       <div className="sticky top-0 bg-white z-10">
-        <div className="pre-headings flex justify-between px-6 py-2">
-          <h2 className="font-medium mt-2 ms:text-[12px] md:text-xl">{title}</h2>
+        <div className="pre-headings flex justify-between px-6 py-3">
+          <h2 className="font-medium mt-2 ms:text-[12px] md:text-xl">
+            {title}
+          </h2>
           <div className="buttons flex gap-2">
-            <button className="bg-gray rounded-md shadow-lg ms:px-2 md:px-4 md:py-2 flex items-center">
+            <button
+              className="bg-gray rounded-md ms:px-2 md:px-2 flex items-center"
+              style={{
+                boxShadow: `0px 2px 6px -1px #00000040, 0px 4px 30px 0px #FFFFFF inset`,
+              }}
+            >
               <FilterIcon />
-              <span className="ms:text-xs md:text-sm ml-1 font-normal">
+              <span className="ms:text-xs md:text-[16px] ml-1 font-normal">
                 Filter
               </span>
             </button>
-            <button className="bg-gray rounded-md shadow-lg ms:px-2 ms:py-2 md:px-4 md:py-2 flex items-center">
+            <button
+              className="bg-gray rounded-md  ms:px-2 ms:py-2 md:px-2 flex items-center"
+              style={{
+                boxShadow: `0px 2px 6px -1px #00000040, 0px 4px 30px 0px #FFFFFF inset`,
+              }}
+            >
               <ExportIcon />
-              <span className="ms:text-xs md:text-sm ml-1 font-normal">
+              <span className="ms:text-xs md:text-[16px] ml-1 font-normal">
                 Export
               </span>
             </button>
-            <button className="bg-gray rounded-md shadow-lg md:px-2 md:py-2 flex items-center">
+            <button
+              className="bg-gray rounded-md md:px-2 flex py-0 items-center"
+              style={{
+                boxShadow: `0px 2px 6px -1px #00000040, 0px 4px 30px 0px #FFFFFF inset`,
+              }}
+            >
               <ThreeDots />
             </button>
           </div>
@@ -77,7 +94,7 @@ const Table = ({ columns, data, title }) => {
         <table className="min-w-full bg-white border border-gray-200 ms:text-xs lg:text-lg">
           <thead>
             <tr className="bg-[#E6E6E6] text-[#616161] text-sm font-light leading-normal">
-              <th className="py-3 px-6 text-left">
+              <th className="py-3 pl-6 pr-0 text-left">
                 <input
                   type="checkbox"
                   checked={isAllRowsSelected}
@@ -99,7 +116,7 @@ const Table = ({ columns, data, title }) => {
                   selectedRows.has(index) ? "bg-gray-200" : ""
                 }`}
               >
-                <td className="py-3 px-6 text-left">
+                <td className="py-3 pl-6 pr-0 text-left">
                   <input
                     type="checkbox"
                     checked={selectedRows.has(index)}

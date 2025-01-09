@@ -1,6 +1,8 @@
 import { useState } from "react";
 import FilterIcon from "../../assets/icons/FilterIcon";
 import ThreeDots from "../../assets/icons/ThreeDots";
+import TabNavigation from "../Tabs/TabNavigation";
+import SearchBox from "../Buttons/SearchBox";
 
 const orders = [
   {
@@ -68,11 +70,20 @@ const getStatusStyle = (status) => {
     case "Pending":
       return "bg-yellow-100 text-txt-yellow";
     case "Shipping":
-      return "bg-table-blue text-txt-blue";
+      return "bg-table-blue text-txt-custom-blue";
     default:
       return "";
   }
 };
+
+const tabs = [
+  "All",
+  "Unfulfilled",
+  "Unpaid",
+  "In Transit",
+  "Completed",
+  "Cancelled",
+];
 
 const OrdersTable = () => {
   const [selectedOrders, setSelectedOrders] = useState([]);
@@ -119,50 +130,16 @@ const OrdersTable = () => {
   };
 
   return (
-    <div className="md:p-4 overflow-x-auto">
-      <div className="sticky top-0 z-10 bg-white">
+    <div className="overflow-x-auto">
+      <div className="sticky top-0 z-10">
         {/* Heading Buttons */}
-        <div className="md:space-x-4 text-gray-600 mt-2 ml-1 overflow-x-auto whitespace-nowrap">
-          <button className="ms:text-xs sm:text-sm md:text-lg text-blue border-b border-blue font-semibold">
-            All
-          </button>
-          <button className="ms:text-xs md:text-lg">Unfulfilled</button>
-          <button className="ms:text-xs md:text-lg">Unpaid</button>
-          <button className="ms:text-xs md:text-lg">In Transit</button>
-          <button className="ms:text-xs md:text-lg">Completed</button>
-          <button className="ms:text-xs md:text-lg">Cancelled</button>
+        <div className="py-4">
+          <TabNavigation tabs={tabs} />
         </div>
-        <div className="mb-4 ml-1">
-          <hr className="border-t border-gray-300" />
-        </div>
+
         {/* Search and Filter Section */}
-        <div className="flex items-center justify-between border-b ms:p-2 md:p-4">
-          <div className="relative md:w-full md:max-w-md">
-            <input
-              type="text"
-              placeholder="Search Order..."
-              className="border border-gray-300 rounded-lg md:w-full sm:pl-8 md:pl-10 md:pr-4 md:py-2 focus:outline-none focus:border-blue-500"
-            />
-            <svg
-              className="absolute ms:left-1 md:left-3 top-1/2 transform -translate-y-1/2 text-gray-400 ms:w-4 ms:h-4 md:w-5 md:h-5"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="none"
-            >
-              <path
-                d="M15 15L21 21"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <path
-                d="M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z"
-                stroke="currentColor"
-                strokeWidth="2"
-              />
-            </svg>
-          </div>
+        <div className="flex items-center justify-between border-b ms:p-2 md:p-4 bg-white">
+          <SearchBox placeholder="Search Salesperson . . ."/>
           <div className="buttons flex gap-2">
             <button className="bg-gray rounded-md shadow-lg px-4 py-2 flex items-center">
               <FilterIcon />

@@ -17,9 +17,9 @@ const Dashboard = () => {
 
   const columns = [
     { label: "Order Id", accessor: "orderId" },
-    { label: "Category", accessor: "category" },
-    { label: "Delivery Time", accessor: "deliveryTime" },
-    { label: "Destination", accessor: "destination" },
+    { label: "Shipping ID", accessor: "shippingId" },
+    { label: "Dispatched Date", accessor: "deliveryTime" },
+    { label: "Shipping Method", accessor: "destination" },
     { label: "Fee", accessor: "fee" },
     { label: "Status", accessor: "status" },
   ];
@@ -27,7 +27,7 @@ const Dashboard = () => {
   const shipmentData = [
     {
       orderId: "ABC2429Z",
-      category: "Electronics",
+      shippingId: "LT-112039",
       deliveryTime: "22/09/2024",
       destination: "USA",
       fee: "$1000",
@@ -35,15 +35,15 @@ const Dashboard = () => {
     },
     {
       orderId: "ALX0007P",
-      category: "Furniture",
-      deliveryTime: "22/09/2024",
+      shippingId: "LT-112903",
+      deliveryTime: "22/09/2024", 
       destination: "Canada",
       fee: "$1290",
       status: "Pending",
     },
     {
       orderId: "ACW1239L",
-      category: "Clothing",
+      shippingId: "LT-112903",
       deliveryTime: "22/09/2024",
       destination: "Nepal",
       fee: "$2500",
@@ -51,7 +51,7 @@ const Dashboard = () => {
     },
     {
       orderId: "TRX1129P",
-      category: "Auto Parts",
+      shippingId: "LT-112903",
       deliveryTime: "22/09/2024",
       destination: "China",
       fee: "$3200",
@@ -59,7 +59,7 @@ const Dashboard = () => {
     },
     {
       orderId: "LLP9920Z",
-      category: "Walmart Supply",
+      shippingId: "LT-112903",
       deliveryTime: "22/09/2024",
       destination: "India",
       fee: "$1990",
@@ -67,7 +67,7 @@ const Dashboard = () => {
     },
     {
       orderId: "TCA1192R",
-      category: "Shoes",
+      shippingId: "LT-112903",
       deliveryTime: "22/09/2024",
       destination: "France",
       fee: "$2725",
@@ -75,7 +75,7 @@ const Dashboard = () => {
     },
     {
       orderId: "ACW1239L",
-      category: "Electronics",
+      shippingId: "LT-112903",
       deliveryTime: "22/09/2024",
       destination: "Korea",
       fee: "$8920",
@@ -95,12 +95,13 @@ const Dashboard = () => {
             textColor="gray"
             icon={<DownArrowIcon />}
           />
-          <div className="flex md:justify-start">
+          <div className="flex md:justify-start border border-[#003DFF] rounded-md">
             <button
-              className="bg-[#003DFF] text-white rounded-md shadow-lg px-4 py-2 ms:text-[12px] md:text-sm"
+              className="text-[#003DFF] px-4 py-2 ms:text-[12px] md:text-sm"
               onClick={() => setIsModalOpen(true)}
+              style={{ boxShadow: `0px 2px 6px -1px #003DFF40` }}
             >
-              + New Shipments
+              Add New Product
             </button>
           </div>
         </div>
@@ -142,16 +143,12 @@ const Dashboard = () => {
           <BarChartGraph />
         </div>
         <div className="w-full h-auto rounded-lg shadow-lg overflow-hidden">
-          <StockAvailabilityCard/>
+          <StockAvailabilityCard />
         </div>
       </div>
 
       <div className="mt-6">
-        <Table
-          columns={columns}
-          data={shipmentData}
-          title="Shipment Tracking"
-        />
+        <Table columns={columns} data={shipmentData} title="Ongoing Orders" />
       </div>
 
       <AddShipmentModal
