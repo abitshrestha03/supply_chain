@@ -2,7 +2,7 @@ import { FiEdit3 } from "react-icons/fi";
 import Order1 from "../../assets/images/order1.png";
 import Order2 from "../../assets/images/order2.png";
 import Order3 from "../../assets/images/order3.png";
-import orderProfileImage from "../../assets/images/orderProfileimage.png";
+import orderProfileImage from "../../assets/images/orderProfileImage.png";
 import OrderHistoryIcon from "../../assets/icons/OrderHistoryIcon";
 import { CiMail } from "react-icons/ci";
 import { HiArrowRight } from "react-icons/hi2";
