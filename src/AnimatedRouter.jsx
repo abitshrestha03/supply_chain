@@ -18,11 +18,10 @@ import EditInventory from "./containers/Inventory/EditInventory";
 import RestockProduct from "./containers/Inventory/RestockProduct";
 import OrderDetails from "./containers/Orders/OrderDetails";
 import Refunds from "./containers/Refunds/Refunds";
-import SalesPersonnel from "./containers/SalesPersonnel/salesPersonnel";
 import Subscription from "./containers/Subscription/Subscription";
 import Notifications from "./containers/Notifications/Notifications";
 import RefundRequest from "./containers/Refunds/RefundRequest";
-
+import SalesPersonnel from './containers/SalesPersonnel/SalesPersonnel'
 const AnimatedRouter = () => {
     const location = useLocation();
 
