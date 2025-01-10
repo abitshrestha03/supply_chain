@@ -118,24 +118,80 @@ const notifications = [
     detail: "Product: ABC (SKU: 12345) has dropped below the threshold.",
     time: "2 hr",
     highlighted: false,
+    icon: (
+      <svg
+        width="24"
+        height="15"
+        viewBox="0 0 24 15"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M17.965 2.20492L16.555 0.794922L10.215 7.13492L11.625 8.54492L17.965 2.20492ZM22.205 0.794922L11.625 11.3749L7.445 7.20492L6.035 8.61492L11.625 14.2049L23.625 2.20492L22.205 0.794922ZM0.375 8.61492L5.965 14.2049L7.375 12.7949L1.795 7.20492L0.375 8.61492Z"
+          fill="black"
+        />
+      </svg>
+    ),
   },
   {
     message: "Restock Reminder!",
     detail: "Product: ABC (SKU: 12345) has dropped below the threshold.",
     time: "2 hr",
     highlighted: false,
+    icon: (
+      <svg
+        width="24"
+        height="15"
+        viewBox="0 0 24 15"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M17.965 2.20492L16.555 0.794922L10.215 7.13492L11.625 8.54492L17.965 2.20492ZM22.205 0.794922L11.625 11.3749L7.445 7.20492L6.035 8.61492L11.625 14.2049L23.625 2.20492L22.205 0.794922ZM0.375 8.61492L5.965 14.2049L7.375 12.7949L1.795 7.20492L0.375 8.61492Z"
+          fill="black"
+        />
+      </svg>
+    ),
   },
   {
     message: "Excess Stock!",
     detail: "Product: ABC (SKU: 12345) has dropped below the threshold.",
     time: "3 hr",
     highlighted: false,
+    icon: (
+      <svg
+        width="24"
+        height="15"
+        viewBox="0 0 24 15"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M17.965 2.20492L16.555 0.794922L10.215 7.13492L11.625 8.54492L17.965 2.20492ZM22.205 0.794922L11.625 11.3749L7.445 7.20492L6.035 8.61492L11.625 14.2049L23.625 2.20492L22.205 0.794922ZM0.375 8.61492L5.965 14.2049L7.375 12.7949L1.795 7.20492L0.375 8.61492Z"
+          fill="black"
+        />
+      </svg>
+    ),
   },
   {
     message: "Low stock alert!",
     detail: "Product: ABC (SKU: 12345) has dropped below the threshold.",
     time: "25 Dec, 2024",
     highlighted: false,
+    icon: (
+      <svg
+        width="24"
+        height="15"
+        viewBox="0 0 24 15"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M17.965 2.20492L16.555 0.794922L10.215 7.13492L11.625 8.54492L17.965 2.20492ZM22.205 0.794922L11.625 11.3749L7.445 7.20492L6.035 8.61492L11.625 14.2049L23.625 2.20492L22.205 0.794922ZM0.375 8.61492L5.965 14.2049L7.375 12.7949L1.795 7.20492L0.375 8.61492Z"
+          fill="black"
+        />
+      </svg>
+    ),
   },
 ];
 
@@ -146,10 +202,64 @@ const Notifications = () => {
         <div className="flex items-center justify-between p-4">
           <div></div>
           <div className="flex space-x-2">
-            <button className="px-3 py-1 text-sm font-medium text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200">
+            <button className="px-3 py-2 text-[16px] gap-2 font-medium text-[#00000099] bg-white rounded-md hover:bg-gray-200 flex items-center">
+              <svg
+                width="20"
+                height="17"
+                viewBox="0 0 20 17"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M2.30078 13H9.30078"
+                  stroke="black"
+                  strokeOpacity="0.6"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                />
+                <path
+                  d="M17.8008 4H10.3008"
+                  stroke="black"
+                  strokeOpacity="0.6"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                />
+                <circle
+                  cx="15.5"
+                  cy="13"
+                  r="3.25"
+                  stroke="black"
+                  strokeOpacity="0.6"
+                  strokeWidth="1.5"
+                />
+                <circle
+                  cx="4"
+                  cy="4"
+                  r="3.25"
+                  stroke="black"
+                  strokeOpacity="0.6"
+                  strokeWidth="1.5"
+                />
+              </svg>
               Filter
             </button>
-            <button className="px-3 py-1 text-sm font-medium text-blue-700 bg-blue-50 rounded-md hover:bg-blue-100">
+            <button className="px-3 py-1 text-[16px] font-medium text-[#00000099] bg-[white] rounded-md hover:bg-blue-100 flex gap-2 items-center">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M4 12.9L7.143 16.5L15 7.5M20 7.563L11.428 16.563L11 16"
+                  stroke="black"
+                  strokeOpacity="0.6"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
               Mark As Read
             </button>
           </div>
