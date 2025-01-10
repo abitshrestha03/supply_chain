@@ -2,8 +2,10 @@ import { useState } from "react";
 import FilterIcon from "../../assets/icons/FilterIcon";
 import ThreeDots from "../../assets/icons/ThreeDots";
 import TabNavigation from "../Tabs/TabNavigation";
-import SearchBox from "../Buttons/SearchBox";
-
+import ExportIcon from "../../assets/icons/ExportIcon";
+import { IoIosArrowDown } from "react-icons/io";
+import { SlCalender } from "react-icons/sl";
+import { useNavigate } from "react-router-dom";
 const orders = [
   {
     id: "ABC2429Z",
@@ -86,6 +88,7 @@ const tabs = [
 ];
 
 const OrdersTable = () => {
+  const navigate=useNavigate();
   const [selectedOrders, setSelectedOrders] = useState([]);
   const [selectAll, setSelectAll] = useState(false);
   const [tableData, setTableData] = useState(orders); // State to handle table data updates
@@ -137,15 +140,36 @@ const OrdersTable = () => {
           <TabNavigation tabs={tabs} />
         </div>
 
-        {/* Search and Filter Section */}
-        <div className="flex items-center justify-between border-b ms:p-2 md:p-4 bg-white">
-          <SearchBox placeholder="Search Salesperson . . ."/>
+        {/* Search and Actions */}
+        <div className="flex items-center justify-between gap-4 w-full bg-white py-4 px-4">
+          <div className="w-[25vw] shadow-md">
+            <input
+              type="text"
+              placeholder="Search Salesperson..."
+              className="border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-blue-500 "
+            />
+          </div>
           <div className="buttons flex gap-2">
-            <button className="bg-gray rounded-md shadow-lg px-4 py-2 flex items-center">
-              <FilterIcon />
-              <span className="ms-2 ms:text-xs font-normal">Filter</span>
+            <button className="bg-gray rounded-md shadow-lg ms:px-2 md:px-4 md:py-2 flex items-center gap-2">
+              <SlCalender />
+              <span className="ms:text-xs md:text-sm ml-1 font-normal">
+                28 Dec 24 - 10 Jan 25
+              </span>
+              <IoIosArrowDown />
             </button>
-            <button className="bg-gray rounded-md shadow-lg px-2 py-2 flex items-center">
+            <button className="bg-gray rounded-md shadow-lg ms:px-2 md:px-4 md:py-2 flex items-center">
+              <FilterIcon />
+              <span className="ms:text-xs md:text-sm ml-1 font-normal">
+                Filter
+              </span>
+            </button>
+            <button className="bg-gray rounded-md shadow-lg ms:px-2 ms:py-2 md:px-4 md:py-2 flex items-center">
+              <ExportIcon />
+              <span className="ms:text-xs md:text-sm ml-1 font-normal">
+                Export
+              </span>
+            </button>
+            <button className="bg-gray rounded-md shadow-lg md:px-2 md:py-2 flex items-center">
               <ThreeDots />
             </button>
           </div>
@@ -154,8 +178,8 @@ const OrdersTable = () => {
 
       {/* Orders Table */}
       <div className="bg-white shadow-md rounded-lg overflow-x-auto">
-        <table className="min-w-full bg-white ms:text-xs lg:text-lg table-fixed">
-          <thead className="border-gray-300">
+        <table className="min-w-full bg-white ms:text-xs lg:text-sm table-fixed">
+          <thead className="border-gray-300 bg-[#F1F1F1] text-sm">
             <tr>
               <th className="py-3 px-4 text-left">
                 <input
@@ -171,6 +195,7 @@ const OrdersTable = () => {
               <th className="py-3 px-4 text-left">Destination</th>
               <th className="py-3 px-4 text-left">Fee</th>
               <th className="py-3 px-4 text-left">Status</th>
+              <th className="py-3 px-4 text-left">Action</th>
             </tr>
           </thead>
           <tbody>
@@ -204,6 +229,14 @@ const OrdersTable = () => {
                     {order.status}
                   </span>
                 </td>
+                <td className="py-3">
+                    <button
+                      className="text-blue-500 hover:underline text-sm underline"
+                      onClick={() => navigate("/orders/details")}
+                    >
+                      View Details
+                    </button>
+                  </td>
               </tr>
             ))}
           </tbody>

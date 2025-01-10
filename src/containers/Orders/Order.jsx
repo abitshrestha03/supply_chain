@@ -8,17 +8,6 @@ const Order = () => {
 
   return (
     <div className="bg-body-color ms:w-[100vw] md:w-full min-h-screen flex flex-col p-4 lg:p-6 md:mt-20">
-      <div className="flex flex-wrap justify-between items-center">
-        <div></div>
-        <div className="flex items-center gap-2 mt-4 sm:mt-0">
-          <button
-            className="bg-[#003DFF] ms:text-[12px] md:text-lg text-white rounded-md shadow-lg px-4 py-2 ms:mt-4 md:mt-0"
-            onClick={() => setIsModalOpen(true)}
-          >
-            + New Shipment
-          </button>
-        </div>
-      </div>
       <div className="grid ms:grid-cols-2 md:grid-cols-4 gap-4 md:mt-8 ms:mt-4">
         <DashboardCard
           title="Total Orders"

@@ -1,5 +1,4 @@
 import { useState } from "react";
-import Button from "../../components/Buttons/Button";
 import MetricCard from "../../components/Cards/MetricCard";
 // import StockAvailabilityChart from "../../components/Charts/StockAvailabilityChart";
 import AddShipmentModal from "../Shipment/NewShipmentModal";
@@ -14,7 +13,7 @@ import TabNavigation from "../../components/Tabs/TabNavigation";
 const Inventory = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const navigate = useNavigate();
-  const [inventoryData, setInventoryData] = useState([
+  const [inventoryData] = useState([
     {
       FKU: "ABC-2429Z",
       Product: "Wai Wai Noodles",
@@ -73,29 +72,6 @@ const Inventory = () => {
     "Out of Stock",
   ];
 
-  // const columns = [
-  //   { label: "Product", accessor: "Product" },
-  //   { label: "SKU", accessor: "SKU" },
-  //   { label: "On Hand", accessor: "On-hand" },
-  //   { label: "Units to Reorder", accessor: "Units-to-Reorder" },
-  //   { label: "Cost", accessor: "Cost" },
-  //   { label: "Action", accessor: "Action" },
-  // ];
-
-  // const handleStatusChange = (id) => {
-  //   setInventoryData((prevData) =>
-  //     prevData.map((item) =>
-  //       item.id === id
-  //         ? {
-  //             ...item,
-  //             Action:
-  //               item.Action === "Add to Order" ? "Order Added" : "Add to Order",
-  //           }
-  //         : item
-  //     )
-  //   );
-  // };
-
   return (
     <div className="bg-body-color ms:w-[100vw] md:w-full  min-h-screen flex flex-col px-4 md:py-4 md:mt-16">
       <div className="flex flex-wrap justify-between items-center">
@@ -110,19 +86,6 @@ const Inventory = () => {
         </div>
       </div>
 
-      {/* <div className="mt-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 ms:gap-y-8 md:gap-8">
-          <div className="grid grid-cols-2 ms:gap-y-2 md:gap-y-4 ms:gap-x-2 md:gap-x-6 col-span-2 md:col-span-2 lg:col-span-4">
-            <MetricCard title="Total Inventory" value="$ 520,000" />
-            <MetricCard title="Units on Hand" value="1,200" />
-            <MetricCard title="Units on Order" value="3,000" />
-            <MetricCard title="Units to Reorder" value="500" />
-          </div> */}
-      {/* <div className="ms:col-span-1 md:col-span-1 lg:col-span-3">
-            <StockAvailabilityChart />
-          </div> */}
-      {/* </div>
-      </div> */}
       <div className="mt-8">
         <div className="flex flex-wrap gap-2">
           <MetricCard title="Total Inventory" value="$ 520,000" />
@@ -132,20 +95,6 @@ const Inventory = () => {
         </div>
       </div>
 
-      {/* <div className="flex items-center mt-8 border-b border-gray-300 border-b-2">
-        <button className="text-sm font-medium text-blue-600 border-b border-custom-blue border-b-2">
-          All
-        </button>
-        <button className="text-sm font-medium text-gray-500 hover:text-blue-600 hover:border-blue-600 border-b-2 border-transparent">
-          High Stock
-        </button>
-        <button className="text-sm font-medium text-gray-500 hover:text-blue-600 hover:border-blue-600 border-b-2 border-transparent">
-          Low Stock
-        </button>
-        <button className="text-sm font-medium text-gray-500 hover:text-blue-600 hover:border-blue-600 border-b-2 border-transparent">
-          Out of Stock
-        </button>
-      </div> */}
       <div className="py-4">
         <TabNavigation tabs={tabs} />
       </div>
@@ -198,12 +147,12 @@ const Inventory = () => {
                 <th className="py-3 px-4 border-b">
                   <input type="checkbox" className="rounded" />
                 </th>
-                <th className="py-3 px-4 border-b">FKU</th>
-                <th className="py-3 px-4 border-b">Product</th>
-                <th className="py-3 px-4 border-b">Category</th>
-                <th className="py-3 px-4 border-b">Price</th>
-                <th className="py-3 px-4 border-b">Stock</th>
-                <th className="py-3 px-4 border-b">Action</th>
+                <th className="py-3 px-4 border-b text-left">FKU</th>
+                <th className="py-3 px-4 border-b text-left">Product</th>
+                <th className="py-3 px-4 border-b text-left">Category</th>
+                <th className="py-3 px-4 border-b text-left">Price</th>
+                <th className="py-3 px-4 border-b text-left">Stock</th>
+                <th className="py-3 px-4 border-b text-start">Action</th>
               </tr>
             </thead>
             <tbody>
@@ -220,9 +169,9 @@ const Inventory = () => {
                   <td className="py-3 px-4">{item.Category}</td>
                   <td className="py-3 px-4">{item.Price}</td>
                   <td className="py-3 px-4">{item.Stock}</td>
-                  <td className="py-3 px-4">
+                  <td className="py-3">
                     <button
-                      className="text-blue-500 hover:underline text-sm"
+                      className="text-blue-500 hover:underline text-sm underline"
                       onClick={() => navigate("/inventory/restock")}
                     >
                       View Details

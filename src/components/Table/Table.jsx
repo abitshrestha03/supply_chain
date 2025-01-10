@@ -2,6 +2,8 @@ import { useState } from "react";
 import ExportIcon from "../../assets/icons/ExportIcon";
 import FilterIcon from "../../assets/icons/FilterIcon";
 import ThreeDots from "../../assets/icons/ThreeDots";
+import SearchBox from "../Buttons/SearchBox";
+import { SlArrowDown } from "react-icons/sl";
 
 /* eslint-disable react/prop-types */
 const Table = ({ columns, data, title }) => {
@@ -51,10 +53,36 @@ const Table = ({ columns, data, title }) => {
       {/* Sticky Header for Filter and Export */}
       <div className="sticky top-0 bg-white z-10">
         <div className="pre-headings flex justify-between px-6 py-3">
-          <h2 className="font-medium mt-2 ms:text-[12px] md:text-xl">
-            {title}
-          </h2>
+          <SearchBox placeholder="Search Salesperson . . ." />
           <div className="buttons flex gap-2">
+            <button
+              className="bg-gray rounded-md px-2 py-2 flex items-center flex gap-2"
+              style={{
+                boxShadow: `inset 0px 4px 30px 0px #FFFFFF, 0px 2px 6px -1px #00000040`,
+              }}
+            >
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M19 6H5C3.89543 6 3 6.89543 3 8V19C3 20.1046 3.89543 21 5 21H19C20.1046 21 21 20.1046 21 19V8C21 6.89543 20.1046 6 19 6Z"
+                  stroke="black"
+                />
+                <path
+                  d="M3 11H21M9 16H15M8 3V7M16 3V7"
+                  stroke="black"
+                  strokeLinecap="round"
+                />
+              </svg>
+              <span className="ms-2 ms:text-xs md:text-[16px] font-normal">
+                28 Dec 24 - 10 Jan 25
+              </span>
+              <SlArrowDown className="text-xs" />
+            </button>
             <button
               className="bg-gray rounded-md ms:px-2 md:px-2 flex items-center"
               style={{

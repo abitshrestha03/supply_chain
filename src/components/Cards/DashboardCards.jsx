@@ -8,13 +8,13 @@ const DashboardCard = ({ title, value, subtitle, trend, icon: Icon }) => {
       <div className="w-full">
         <div className="flex justify-between items-center">
           <h2 className="ms:text-[9px] md:text-lg font-medium">{title}</h2>
-          {Icon && (  // Conditionally render icon if Icon is passed
+          {Icon && (  
             <div className="text-[#6187ff] bg-white shadow p-1 rounded-md md:mt-[-10px] md:me-[-10px]">
               <Icon className="md:w-6 md:h-6" />
             </div>
           )}
         </div>
-        <p className="ms:text-lg md:text-3xl font-semibold mb-2">{value}</p>
+        <p className="ms:text-lg md:text-3xl font-semibold mb-2 text-black">{value}</p>
         <div className="flex w-full items-center justify-between">
           <p className="text-gray-500 ms:text-[8px] md:text-xs">{subtitle}</p>
           <p
