@@ -38,7 +38,7 @@ const AnimatedRouter = () => {
                 <Route path="/success" element={<Successful />} />
 
                 {/* Default Route Redirect */}
-                <Route path="/" element={<Navigate to="/login" />} />
+                <Route path="/" element={<Navigate to="/" />} />
 
                 {/* Routes with Layout */}
                 <Route
